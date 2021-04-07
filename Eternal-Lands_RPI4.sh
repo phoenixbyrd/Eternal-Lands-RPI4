@@ -1,9 +1,7 @@
 #!/bin/bash
 #Install Dependencies
-if [ $(dpkg-query -W -f='${Status}' libcal3d12-dev libpng12-0 libsdl2-image-dev libvorbis-dev libopenal-dev libxml2-dev nlohmann-json-dev innoextract libsdl2-net-dev libsdl2-ttf-dev unzip 2>/dev/null | grep -c "ok installed") -eq 0 ];
-then
-  sudo apt install libcal3d12-dev libpng12-0 libsdl2-image-dev libvorbis-dev libopenal-dev libxml2-dev nlohmann-json-dev innoextract libsdl2-net-dev libsdl2-ttf-dev unzip -y;
-fi
+  sudo apt install libcal3d12-dev libpng12-0 libsdl2-image-dev libvorbis-dev libopenal-dev libxml2-dev nlohmann-json-dev innoextract libsdl2-net-dev libsdl2-image-dev libsdl2-ttf-dev unzip -y;
+
 
 #Git Clone
 cd ~
@@ -43,5 +41,9 @@ EOF
 
 chmod +x /home/pi/Desktop/Eternal-Lands.desktop
 sudo cp /home/pi/Desktop/Eternal-Lands.desktop /usr/share/applications
+
+#Cleanup
 cd ~
-rm -rf /home/pi/Eternal-Lands/
+sudo rm -r /home/pi/Eternal-Lands/
+cls
+echo "Game installed in /opt/Eternal-Lands"
